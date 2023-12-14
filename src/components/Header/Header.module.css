@@ -28,22 +28,21 @@
   display: flex;
 }
 
-/* Adapte as regras para dispositivos móveis */
 @media only screen and (max-width: 600px) {
   .header {
-    height: auto; /* Ajuste a altura conforme necessário para o conteúdo */
-    padding: 1rem; /* Adicione um preenchimento interno para espaçamento */
+    height: auto;
+    padding: 1rem;
   }
 
   .strong,
   .strongPurple {
-    margin-top: 1rem; /* Reduza o espaçamento superior */
-    font-size: 24px; /* Ajuste o tamanho da fonte conforme necessário */
+    margin-top: 1rem;
+    font-size: 24px;
   }
 
   .gift {
-    margin-top: 1rem; /* Reduza o espaçamento superior */
-    width: 1rem; /* Ajuste a largura conforme necessário */
-    height: 1.5rem; /* Ajuste a altura conforme necessário */
+    margin-top: 1rem;
+    width: 1rem;
+    height: 1.5rem;
   }
 }

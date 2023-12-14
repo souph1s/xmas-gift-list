@@ -88,7 +88,7 @@
 }
 
 .tasksAdded {
-  text-align: left; /* Align text to the left */
+  text-align: left;
   margin-bottom: 0.5rem;
   background: var(--dark-red);
   padding: 1rem;
@@ -115,6 +115,7 @@
   color: var(--gray-300);
   text-decoration: line-through;
 }
+
 .checkButton {
   background: transparent;
   border: 0;
@@ -157,7 +158,6 @@
   color: var(--red);
 }
 
-/* Adapte as regras para dispositivos móveis */
 @media only screen and (max-width: 600px) {
   .tasksAdded,
   .completedTask,
@@ -180,45 +180,45 @@
 
   .tasksAdded {
     flex-grow: 0;
-    width: 100%; /* Altere para 100% para ocupar toda a largura da tela */
-    max-width: 580px; /* Defina a largura máxima desejada */
-    font-size: 16px; /* Ajuste o tamanho do texto conforme necessário */
+    width: 100%;
+    max-width: 580px;
+    font-size: 16px;
   }
 
   .taskHeader {
-    width: 100%; /* Ajuste a largura para ocupar toda a largura disponível */
+    width: 100%;
   }
 
   .taskList {
-    width: 100%; /* Ajuste a largura para ocupar toda a largura disponível */
+    width: 100%;
   }
 
   .noTask,
   .noTaskThin {
-    text-align: center; /* Centralize o texto */
+    text-align: center;
   }
 
   .counter {
-    margin-left: 1rem; /* Remova a margem lateral esquerda no mobile */
-    margin-top: 0.5rem; /* Adicione uma margem superior para separação */
-    width: auto; /* Permita que a largura se ajuste automaticamente */
-    font-size: 14px; /* Ajuste o tamanho do texto para dispositivos móveis */
-    padding: 4px 12px; /* Reduza um pouco o padding para economizar espaço */
-    text-align: left; /* Alinhe o texto à esquerda */
+    margin-left: 1rem;
+    margin-top: 0.5rem;
+    width: auto;
+    font-size: 14px;
+    padding: 4px 12px;
+    text-align: left;
   }
 
   .taskHeader {
-    flex-direction: column; /* Coluna para empilhar os elementos no mobile */
-    align-items: flex-start; /* Alinhe os elementos à esquerda no mobile */
-    width: 100%; /* Largura total no mobile */
-    padding-bottom: 12px; /* Reduza o espaçamento entre os textos */
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    padding-bottom: 12px;
   }
 
   .taskCompleted {
-    margin: 0; /* Reduza o espaçamento vertical */
+    margin: 0;
   }
 
   .taskCreated {
-    margin: 0; /* Reduza o espaçamento vertical */
+    margin: 0;
   }
 }

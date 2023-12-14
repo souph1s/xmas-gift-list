@@ -52,35 +52,34 @@
   margin-right: 0.5rem;
 }
 
-/* Adapte as regras para dispositivos móveis */
 @media only screen and (max-width: 600px) {
   .taskForm form {
     display: flex;
-    flex-direction: column; /* Altere para coluna em dispositivos móveis */
+    flex-direction: column;
     align-items: center;
     margin-top: -2rem;
   }
 
   .taskForm textarea {
-    width: 100%; /* Ajuste para ocupar toda a largura disponível */
-    max-width: 300px; /* Defina uma largura máxima desejada */
-    margin-top: 1rem; /* Adicione um espaçamento superior */
+    width: 100%;
+    max-width: 300px;
+    margin-top: 1rem;
   }
 
   .taskForm button {
     display: flex;
-    align-items: center; /* Centralize verticalmente os itens */
-    margin-top: 1rem; /* Adicione um espaçamento superior */
-    margin-left: 0; /* Remova a margem esquerda */
-    width: 20%; /* Ajuste para ocupar toda a largura disponível */
+    align-items: center;
+    margin-top: 1rem;
+    margin-left: 0;
+    width: 20%;
   }
 
   .taskForm button svg {
-    display: none; /* Adicione margem direita ao ícone (ajuste conforme necessário) */
+    display: none;
   }
 
   .taskForm span {
-    margin-right: 0; /* Remova a margem direita */
-    margin-top: 0.5rem; /* Adicione um espaçamento superior */
+    margin-right: 0;
+    margin-top: 0.5rem;
   }
 }
