@@ -1,0 +1,49 @@
+.header {
+  background: var(--dark-red);
+  display: flex;
+  justify-content: center;
+  width: auto;
+  height: 200px;
+}
+
+.strong {
+  margin-top: 5.12rem;
+  font-weight: 900;
+  font-size: 40px;
+  color: white;
+}
+
+.strongPurple {
+  margin-top: 5.12rem;
+  font-weight: 900;
+  font-size: 40px;
+  color: var(--green);
+}
+
+.gift {
+  margin-top: 5.8rem;
+  width: 1.37rem;
+  height: 2.25rem;
+  align-items: center;
+  display: flex;
+}
+
+/* Adapte as regras para dispositivos móveis */
+@media only screen and (max-width: 600px) {
+  .header {
+    height: auto; /* Ajuste a altura conforme necessário para o conteúdo */
+    padding: 1rem; /* Adicione um preenchimento interno para espaçamento */
+  }
+
+  .strong,
+  .strongPurple {
+    margin-top: 1rem; /* Reduza o espaçamento superior */
+    font-size: 24px; /* Ajuste o tamanho da fonte conforme necessário */
+  }
+
+  .gift {
+    margin-top: 1rem; /* Reduza o espaçamento superior */
+    width: 1rem; /* Ajuste a largura conforme necessário */
+    height: 1.5rem; /* Ajuste a altura conforme necessário */
+  }
+}

@@ -1,0 +1,224 @@
+.centeredContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5rem;
+  margin-bottom: 1rem;
+}
+
+.taskHeader {
+  border-bottom: 1px solid var(--gray-300);
+  justify-content: space-between;
+  display: flex;
+  align-items: center;
+  width: 46rem;
+  padding-bottom: 24px;
+}
+
+.taskCreated {
+  font-size: 18px;
+  color: var(--green);
+}
+
+.taskCompleted {
+  font-size: 18px;
+  color: var(--dark-red);
+}
+
+.counter {
+  color: var(--white);
+  border-radius: 999px;
+  padding: 4px 16px;
+  background: var(--gray-400);
+  margin-left: 0.5rem;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.centeredNoTasks {
+  font-family: "Lilita One", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5rem;
+}
+
+.clipboardContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.clipboard {
+  max-width: 100%;
+}
+
+.noTask {
+  font-family: "Lilita One", sans-serif;
+  color: var(--gray-300, #808080);
+  text-align: center;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 140%;
+  margin-top: 16px;
+}
+
+.noTaskThin {
+  color: var(--gray-300, #808080);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 140%;
+  margin-top: 8px;
+}
+
+.centeredTasks {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.taskList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.tasksAdded {
+  text-align: left; /* Align text to the left */
+  margin-bottom: 0.5rem;
+  background: var(--dark-red);
+  padding: 1rem;
+  display: flex;
+  gap: 12px;
+  width: 46rem;
+  color: var(--gray-100);
+  border-radius: 8px;
+  border: 1px solid var(--gray-400);
+  box-shadow: 0px 2px 8px 0px rgba(0, 0, 0, 0.06);
+  position: relative;
+}
+
+.completedTask {
+  padding: 1rem;
+  display: flex;
+  justify-content: left;
+  gap: 12px;
+  width: 46rem;
+  position: relative;
+  border-radius: 8px;
+  border: 1px solid var(--gray-500);
+  background: var(--gray-500);
+  color: var(--gray-300);
+  text-decoration: line-through;
+}
+.checkButton {
+  background: transparent;
+  border: 0;
+  color: var(--blue);
+  cursor: pointer;
+}
+
+.checkButton :hover {
+  background-color: var(--green);
+  border-radius: 80%;
+  transition: background-color 0.3s ease;
+}
+
+.checkedButton {
+  background: transparent;
+  border: 0;
+  color: var(--purpledark);
+  cursor: pointer;
+}
+
+.checkedButton :hover {
+  color: var(--dark-red);
+  transition: background-color 0.3s ease;
+}
+
+.trashButton {
+  background: transparent;
+  border: 0;
+  color: var(--gray-300);
+  cursor: pointer;
+  position: absolute;
+  right: 12px;
+  bottom: 50%;
+  transform: translateY(50%);
+}
+
+.trashButton :hover {
+  border-radius: 4px;
+  background: var(--red);
+  color: var(--red);
+}
+
+/* Adapte as regras para dispositivos móveis */
+@media only screen and (max-width: 600px) {
+  .tasksAdded,
+  .completedTask,
+  .taskCreated,
+  .taskCompleted {
+    width: 100%;
+    max-width: none;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+  }
+
+  .checkButton,
+  .checkedButton,
+  .trashButton {
+    width: auto;
+  }
+
+  .tasksAdded {
+    flex-grow: 0;
+    width: 100%; /* Altere para 100% para ocupar toda a largura da tela */
+    max-width: 580px; /* Defina a largura máxima desejada */
+    font-size: 16px; /* Ajuste o tamanho do texto conforme necessário */
+  }
+
+  .taskHeader {
+    width: 100%; /* Ajuste a largura para ocupar toda a largura disponível */
+  }
+
+  .taskList {
+    width: 100%; /* Ajuste a largura para ocupar toda a largura disponível */
+  }
+
+  .noTask,
+  .noTaskThin {
+    text-align: center; /* Centralize o texto */
+  }
+
+  .counter {
+    margin-left: 1rem; /* Remova a margem lateral esquerda no mobile */
+    margin-top: 0.5rem; /* Adicione uma margem superior para separação */
+    width: auto; /* Permita que a largura se ajuste automaticamente */
+    font-size: 14px; /* Ajuste o tamanho do texto para dispositivos móveis */
+    padding: 4px 12px; /* Reduza um pouco o padding para economizar espaço */
+    text-align: left; /* Alinhe o texto à esquerda */
+  }
+
+  .taskHeader {
+    flex-direction: column; /* Coluna para empilhar os elementos no mobile */
+    align-items: flex-start; /* Alinhe os elementos à esquerda no mobile */
+    width: 100%; /* Largura total no mobile */
+    padding-bottom: 12px; /* Reduza o espaçamento entre os textos */
+  }
+
+  .taskCompleted {
+    margin: 0; /* Reduza o espaçamento vertical */
+  }
+
+  .taskCreated {
+    margin: 0; /* Reduza o espaçamento vertical */
+  }
+}

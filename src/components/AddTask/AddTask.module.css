@@ -1,0 +1,86 @@
+.taskForm form {
+  display: flex;
+  margin-top: -2rem;
+  justify-content: center;
+}
+
+.taskForm textarea {
+  background: var(--gray-500);
+  border: 0;
+  resize: none;
+  border-radius: 8px;
+  width: 39rem;
+  color: var(--white);
+  line-height: 3.3rem;
+  height: 3.3rem;
+  text-align: left;
+  padding-left: 0.5rem;
+}
+
+.taskForm textarea:focus {
+  outline: none;
+  border: 1px solid var(--purpledark);
+}
+
+.taskForm textarea::placeholder {
+  padding-left: 0.5rem;
+  text-align: left;
+  line-height: 3.3rem;
+}
+
+.taskForm button {
+  display: flex;
+  border: 0;
+  border-radius: 8px;
+  background: var(--green);
+  padding: 1rem;
+  color: var(--white);
+  margin-left: 1rem;
+  height: 3.2rem;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.4s;
+}
+
+.taskForm button:hover {
+  cursor: none;
+  background: var(--light-green);
+  transition: background-color 0.4s;
+}
+
+.taskForm span {
+  margin-right: 0.5rem;
+}
+
+/* Adapte as regras para dispositivos móveis */
+@media only screen and (max-width: 600px) {
+  .taskForm form {
+    display: flex;
+    flex-direction: column; /* Altere para coluna em dispositivos móveis */
+    align-items: center;
+    margin-top: -2rem;
+  }
+
+  .taskForm textarea {
+    width: 100%; /* Ajuste para ocupar toda a largura disponível */
+    max-width: 300px; /* Defina uma largura máxima desejada */
+    margin-top: 1rem; /* Adicione um espaçamento superior */
+  }
+
+  .taskForm button {
+    display: flex;
+    align-items: center; /* Centralize verticalmente os itens */
+    margin-top: 1rem; /* Adicione um espaçamento superior */
+    margin-left: 0; /* Remova a margem esquerda */
+    width: 20%; /* Ajuste para ocupar toda a largura disponível */
+  }
+
+  .taskForm button svg {
+    display: none; /* Adicione margem direita ao ícone (ajuste conforme necessário) */
+  }
+
+  .taskForm span {
+    margin-right: 0; /* Remova a margem direita */
+    margin-top: 0.5rem; /* Adicione um espaçamento superior */
+  }
+}

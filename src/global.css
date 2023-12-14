@@ -1,0 +1,43 @@
+:root {
+  --green: #1a530a;
+  --light-green: #267a0f;
+  --white: #fff;
+  --dark-red: #87231b;
+  --red: #e25858;
+  --blue-dark: #1e6f9f;
+  --blue: #4ea8de;
+  --purple: #8284fa;
+  --purpledark: #5e60ce;
+  --gray-100: #f2f2f2;
+  --gray200: #d9d9d9;
+  --gray-300: #808080;
+  --gray-400: #333333;
+  --gray-500: #262626;
+  --gray-600: #1a1a1a;
+  --gray-700: #0d0d0d;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Lilita One", sans-serif;
+  cursor: url("/src/assets/gift-fill.svg"), auto;
+  background: #fadfb5;
+}
+
+p {
+  font-family: "Lilita One", sans-serif;
+}
+
+body,
+input,
+textarea,
+button {
+  font-family: "Lilita One", sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
