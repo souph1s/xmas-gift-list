@@ -1,23 +1,40 @@
+// AddTasks.tsx
 import { PlusCircle } from "@phosphor-icons/react";
 import styles from "./AddTask.module.css";
 import { FormEvent, useState } from "react";
+import Modal from "../Modal/Modal"; // Create a Modal component
 
-export function AddTask({ onAddTask }: { onAddTask: (task: string) => void }) {
+interface AddTaskProps {
+  onAddTask: (task: string) => void;
+}
+
+export function AddTask({ onAddTask }: AddTaskProps) {
   const [newTaskText, setNewTaskText] = useState("");
+  const [error, setError] = useState<string | null>(null);
 
-  function handleCreateNewTask(event: FormEvent) {
+  const handleCreateNewTask = (event: FormEvent) => {
     event.preventDefault();
+
+    if (newTaskText.trim() === "") {
+      setError("Please enter a task before adding.");
+      return;
+    }
 
     onAddTask(newTaskText);
     setNewTaskText("");
-  }
+    setError(null);
+  };
 
-  function handleKeyPress(event: React.KeyboardEvent<HTMLTextAreaElement>) {
+  const handleKeyPress = (event: React.KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key === "Enter" && !event.shiftKey) {
       event.preventDefault();
-      handleCreateNewTask(event as FormEvent);
+      handleCreateNewTask(event);
     }
-  }
+  };
+
+  const closeModal = () => {
+    setError(null);
+  };
 
   return (
     <div className={styles.taskForm}>
@@ -34,6 +51,7 @@ export function AddTask({ onAddTask }: { onAddTask: (task: string) => void }) {
           <PlusCircle size={22} className={styles.img} />
         </button>
       </form>
+      {error && <Modal message={error} onClose={closeModal} />}
     </div>
   );
 }

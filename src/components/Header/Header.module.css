@@ -4,6 +4,7 @@
   justify-content: center;
   width: auto;
   height: 200px;
+  cursor: url("/src/assets/gift-fill.svg"), auto;
 }
 
 .strong {

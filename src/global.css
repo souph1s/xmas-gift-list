@@ -23,9 +23,14 @@
   box-sizing: border-box;
 }
 
+button,
+textarea {
+  cursor: url("/src/assets/gift-fill.svg"), auto;
+}
+
 body {
   font-family: "Lilita One", sans-serif;
-  cursor: url("/src/assets/gift-fill.svg"), auto;
+  cursor: url("/src/assets/gift-fill-black.svg"), auto;
   background: #fadfb5;
 }
 

@@ -1,3 +1,7 @@
+.taskForm {
+  position: relative;
+}
+
 .taskForm form {
   display: flex;
   margin-top: -2rem;
@@ -43,7 +47,6 @@
 }
 
 .taskForm button:hover {
-  cursor: none;
   background: var(--light-green);
   transition: background-color 0.4s;
 }

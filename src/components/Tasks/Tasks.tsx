@@ -1,3 +1,4 @@
+// Tasks.tsx
 import {
   Circle,
   CheckCircle,
@@ -7,50 +8,57 @@ import {
 import styles from "./Tasks.module.css";
 import { useState, useEffect } from "react";
 
+interface Task {
+  name: string;
+  completed: boolean;
+  deleted: boolean;
+}
+
 interface TasksProps {
   taskItems: string[];
 }
 
 export function Tasks({ taskItems }: TasksProps) {
-  const [completedTasks, setCompletedTasks] = useState<string[]>([]);
-  const [totalCreatedTasks, setTotalCreatedTasks] = useState<number>(0);
-  const [deletedTasks, setDeletedTasks] = useState<string[]>([]);
+  const [tasks, setTasks] = useState<Task[]>([]);
+  const [completedTaskCount, setCompletedTaskCount] = useState<number>(0);
 
   useEffect(() => {
-    setTotalCreatedTasks(taskItems.length);
+    const newTasks = taskItems.map((task) => ({
+      name: task,
+      completed: false,
+      deleted: false,
+    }));
+    setTasks(newTasks);
   }, [taskItems]);
 
-  const handleTaskToggle = (clickedTask: string) => {
-    const isTaskCompleted = completedTasks.includes(clickedTask);
+  useEffect(() => {
+    const filteredTasks = tasks.filter((task) => !task.deleted);
+    const completedTasksCount = filteredTasks.filter(
+      (task) => task.completed
+    ).length;
+    setCompletedTaskCount(completedTasksCount);
+  }, [tasks]);
 
-    if (isTaskCompleted) {
-      setCompletedTasks((prevCompletedTasks) =>
-        prevCompletedTasks.filter((task) => task !== clickedTask)
-      );
-    } else {
-      setCompletedTasks((prevCompletedTasks) => [
-        ...prevCompletedTasks,
-        clickedTask,
-      ]);
-    }
+  const handleTaskToggle = (clickedTask: string) => {
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.name === clickedTask && !task.deleted
+          ? { ...task, completed: !task.completed }
+          : task
+      )
+    );
   };
 
   const handleDeleteTask = (deletedTask: string) => {
-    setDeletedTasks((prevDeletedTasks) => [...prevDeletedTasks, deletedTask]);
-
-    setCompletedTasks((prevCompletedTasks) =>
-      prevCompletedTasks.filter((task) => task !== deletedTask)
+    setTasks((prevTasks) =>
+      prevTasks.map((task) =>
+        task.name === deletedTask ? { ...task, deleted: true } : task
+      )
     );
-
-    setTotalCreatedTasks(totalCreatedTasks - 1);
   };
 
   const rearrangeTasks = () => {
-    const tasksNotCompleted = taskItems.filter(
-      (task) => !completedTasks.includes(task) && !deletedTasks.includes(task)
-    );
-    const rearrangedTasks = [...tasksNotCompleted, ...completedTasks];
-    return rearrangedTasks;
+    return tasks.filter((task) => !task.deleted);
   };
 
   return (
@@ -58,42 +66,42 @@ export function Tasks({ taskItems }: TasksProps) {
       <div className={styles.centeredContainer}>
         <div className={styles.taskHeader}>
           <p className={styles.taskCreated}>
-            Listed gifts
-            <span className={styles.counter}>{totalCreatedTasks}</span>
+            Gifts to receive:
+            <span className={styles.counter}>{rearrangeTasks().length}</span>
           </p>
           <p className={styles.taskCompleted}>
-            Received from Santa Claus
+            Received from Santa Claus:
             <span className={styles.counter}>
-              {completedTasks.length} of {totalCreatedTasks}
+              {completedTaskCount} of {rearrangeTasks().length}
             </span>
           </p>
         </div>
       </div>
 
-      {taskItems.length > 0 || completedTasks.length > 0 ? (
+      {rearrangeTasks().length > 0 || completedTaskCount > 0 ? (
         <div className={styles.centeredTasks}>
           <div className={styles.taskList}>
             {rearrangeTasks().map((task, index) => (
               <p
                 key={index}
                 className={`${styles.tasksAdded} ${
-                  completedTasks.includes(task) ? styles.completedTask : ""
+                  task.completed ? styles.completedTask : ""
                 }`}
               >
                 <button
                   className={styles.checkButton}
-                  onClick={() => handleTaskToggle(task)}
+                  onClick={() => handleTaskToggle(task.name)}
                 >
-                  {completedTasks.includes(task) ? (
+                  {task.completed ? (
                     <CheckCircle size={32} color="#fff" weight="fill" />
                   ) : (
                     <Circle size={24} color="#fff" />
                   )}
                 </button>
-                {task}
+                {task.name}
                 <button
                   className={styles.trashButton}
-                  onClick={() => handleDeleteTask(task)}
+                  onClick={() => handleDeleteTask(task.name)}
                 >
                   <Trash size={18} color="#fff" />
                 </button>
