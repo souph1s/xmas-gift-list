@@ -1,8 +1,7 @@
-// AddTasks.tsx
 import { PlusCircle } from "@phosphor-icons/react";
 import styles from "./AddTask.module.css";
 import { FormEvent, useState } from "react";
-import Modal from "../Modal/Modal"; // Create a Modal component
+import Modal from "../Modal/Modal"; 
 
 interface AddTaskProps {
   onAddTask: (task: string) => void;
